@@ -7,10 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "electron ."
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/dangraham99/bailii-node.git"
-  },
+  "repository": "git+https://github.com/dangraham99/bailii-node.git",
   "author": "Daniel Graham",
   "license": "ISC",
   "bugs": {
@@ -19,5 +16,8 @@
   "homepage": "https://github.com/dangraham99/bailii-node#readme",
   "devDependencies": {
     "electron": "^5.0.5"
+  },
+  "dependencies": {
+    "menubar": "^6.0.5"
   }
 }
