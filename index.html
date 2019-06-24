@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="public/bootstrap4/css/bootstrap.min.css">
-    <script src="public/bootstrap4/js/bootstrap.min.js" defer></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="./node_modules/materialize-css/dist/css/materialize.min.css">
+    <script src="./node_modules/materialize-css/dist/js/materialize.min.js" defer></script>
     <link rel="stylesheet" href="public/main.css">
     
     <title>BAILII</title>
@@ -13,20 +14,37 @@
 <body>
     <div class="container">
         <div class="row">
-            <div class="col-12">
-                <div class="welcome-text text-center">
+            <div class="col s12">
+                <div class="welcome-text center-align">
                     <p><b>Enter a UK case citation</b></p>
                 </div>
             </div>
+        
         </div>
         <div class="row">
-            <div class="col-12">
-                <div class="form-container">
-                     <input type="text" name="citation" id="citation">
-                    <label for=citation><small>e.g. 2000 ukhl 47 or [2000] 1 AC 360</small></label>
+                <div class="input-field col s12">
+                  <input placeholder="[2000] 1 AC 360" id="citation" type="text" class="validate">
+                  <label for="citation">Case citation</label>
                 </div>
+        </div>
+
+        <div class="row">
+            <div class="col s12">
+                <div class="case-info center-align">
+                    <p class="teal-text darken-4">Case found!</p>
+                    <p><i><strong>R v Secretary of State for the Home Department (ex p Santillo)</strong></i></p>
+                    <i id=pdf-click class="material-icons small">picture_as_pdf</i>
+                    <i id=copy-click class="material-icons small">content_paste</i>
+                </div>
+
+                <div class="hide case-info-fail center-align">
+                        <p class="red-text accent-4">Could not find corresponding case...</p>
+                </div>
+                
             </div>
         </div>
+
+
     </div>
 </body>
 </html>

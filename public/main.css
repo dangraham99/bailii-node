@@ -1,3 +1,61 @@
+*, *::after, *::before {
+	-webkit-user-select: none;
+	-webkit-user-drag: none;
+	-webkit-app-region: no-drag;
+    cursor: default;
+    padding: 0;
+    margin: 0;
+}
+
 .welcome-text {
-    padding-top: 2%;
+    padding-top: 5%;
+    margin: 0;
+}
+
+input {
+    cursor: text;
+}
+
+.case-info {
+    padding: 0;
+    margin: 0;
+    border: 5px;
+}
+
+#case-card:active{
+    cursor: grabbing;
+    text-decoration: none;
+}
+
+#case-court {
+    padding-bottom: 2%;
+}
+
+.card {
+    max-height: 50px;
+}
+
+
+.case-info i {
+    margin-top: 6%;
+}
+
+i:hover {
+    cursor: grab;
+}
+
+i:active {
+    cursor: grabbing;
+}
+
+#pdf-click {
+    margin-right: 10%;
+}
+
+#pdf-click:hover {
+    color: #d50000;
+}
+
+#copy-click:hover {
+    color: #ff6d00 ;
 }

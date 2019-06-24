@@ -19,8 +19,8 @@ app.on('ready', () => {
 
   mb.on('ready', () => {
     console.log('Menubar app is ready.');
-    mb.setOption('width', 350)
-    mb.setOption('height', 250)
+    mb.setOption('width', 320)
+    mb.setOption('height', 350)
     // your app code here
   });
 });
