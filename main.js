@@ -8,9 +8,15 @@ const iconPath = path.join(__dirname, 'node_modules', 'menubar', 'assets', 'Icon
 app.on('ready', () => {
   const tray = new Tray(iconPath);
   const contextMenu = Menu.buildFromTemplate([
-    { label: 'Close', role: 'quit', type: 'normal' }
-
+    { label: 'Quit', role: 'quit', type: 'normal' }
   ]);
+
+  if (process.platform == 'darwin'){
+    const contextMenu = Menu.buildFromTemplate([
+      { label: 'Quit (macOS)', role: 'quit', type: 'normal'}
+    ])
+  }
+
   tray.setContextMenu(contextMenu);
 
   const mb = menubar({
