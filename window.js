@@ -79,8 +79,8 @@ $('#case-citation').keyup(function(event) {
 $('#btn-submit').click(function(){
     resetDisplay()
     usrInputCitation = $('#case-citation').val()
-    $('#case-status').text('Searching...')
     usrCase = new Case(usrInputCitation)
+    $('#case-status').text('Searching...')
     usrCase.makeRequest()
 })
         
