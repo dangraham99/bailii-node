@@ -2,7 +2,7 @@ const { app, Menu, Tray, globalShortcut } = require('electron');
 const path = require('path');
 const os = require('os');
 const { menubar } = require('menubar');
-const iconPath = path.join(__dirname, 'node_modules', 'menubar', 'assets', 'IconTemplate.png');
+
 
 let mb = null
 
@@ -14,7 +14,7 @@ app.on('ready', () => {
     copyright: 'Daniel Graham',
     credits: 'Icons made by Freepik & Icon Pond from www.flaticon.com'
   })
-  const tray = new Tray(iconPath)
+  const tray = new Tray('IconTemplate@2x.png')
   
   mb = menubar({
     tray,
@@ -30,7 +30,7 @@ app.on('ready', () => {
     if (process.platform == 'darwin') {
       return Menu.buildFromTemplate([
         {label: 'Open', click() {mb.showWindow()}, type: 'normal', accelerator: 'CmdOrCtrl+Shift+Q',},
-        {label: 'About', role: 'about', type: 'normal'},
+        {role: 'about', type: 'normal'},
         {type: 'separator'},
         {role: 'quit', type: 'normal'}
       ])
