@@ -3,28 +3,25 @@ let ipcRenderer = require('electron').ipcRenderer;
 
 class Case {
     constructor(caseCitation){
-        this.citation = caseCitation
-        validateCitation(this.citation)
+        this.citation = this.validate(caseCitation)
+       
     }
 
-    validateCitation(citation){
-        return true
+    validate(citation){
+        var trimmed = citation.replace(/[~`!@#$%^&*(){}\[\];:"'<,.>?\/\\|_+=-]/g, "")
+        return trimmed
 
     }
-
-
-        
         
     caseData(){
-        
-        return true
+
+        return this.citation
     }
 
     getValidCase(){
         return true
 
     }
-
 
     getCourt(){
         return this.caseData()[1]
@@ -39,8 +36,9 @@ class Case {
 
 
 $('#btn-submit').click(function(){
-     usrInputCitation = $('#case-citation').val()
-    console.log(usrInputCitation)
+    usrInputCitation = $('#case-citation').val()
+    usrCase = new Case(usrInputCitation)
+    console.log(usrCase.caseData())
 })
         
 
