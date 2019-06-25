@@ -1,4 +1,4 @@
-const { app, Menu, Tray } = require('electron');
+const { app, Menu, Tray, globalShortcut } = require('electron');
 const path = require('path');
 const os = require('os');
 const { menubar } = require('menubar');
@@ -23,7 +23,7 @@ app.on('ready', () => {
   function contextMenuContents(){
     if (process.platform == 'darwin') {
       return Menu.buildFromTemplate([
-        {label: 'Open', click() {mb.showWindow()}, type: 'normal'},
+        {label: 'Open', click() {mb.showWindow()}, type: 'normal', accelerator: 'CmdOrCtrl+Shift+Q',},
         {label: 'About', role: 'about', type: 'normal'},
         {type: 'separator'},
         {role: 'quit', type: 'normal'}
@@ -35,15 +35,34 @@ app.on('ready', () => {
     }
   };
 
-  
+  const ret = globalShortcut.register('CommandOrControl+Shift+Q', () => {
+    mb.showWindow()
+  })
+
+  if (!ret) {
+    console.log('registration failed')
+  }
+
+  // Check whether a shortcut is registered.
+  console.log(globalShortcut.isRegistered('CommandOrControl+Shift+Q'))
+
   mb.on('ready', () => {
+
     console.log('Menubar app is ready.');
     mb.setOption('width', 320)
-    mb.setOption('height', 350)
+    mb.setOption('height', 250)
     mb.tray.setContextMenu(contextMenuContents())
   });
 
   mb.on('after-create-window', () => {
     mb.window.openDevTools({mode: 'detach'})
   })
+});
+
+app.on('will-quit', () => {
+  // Unregister a shortcut.
+  globalShortcut.unregister('CommandOrControl+Shift+Q')
+
+  // Unregister all shortcuts.
+  globalShortcut.unregisterAll()
 });
