@@ -54,9 +54,6 @@ app.on('ready', () => {
     mb.tray.setContextMenu(contextMenuContents())
   });
 
-  mb.on('after-create-window', () => {
-    mb.window.openDevTools({mode: 'detach'})
-  })
 });
 
 app.on('will-quit', () => {
