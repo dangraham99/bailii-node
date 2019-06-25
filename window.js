@@ -1,3 +1,4 @@
+window.$ = window.jQuery = require('./node_modules/jquery/dist/jquery.slim');
 let ipcRenderer = require('electron').ipcRenderer;
 
 class Case {
@@ -12,10 +13,10 @@ class Case {
     }
 
 
-    
-    
+        
+        
     caseData(){
-    
+        
         return true
     }
 
@@ -32,12 +33,15 @@ class Case {
     getTitle(){
         return this.caseData()[0]
     }
-    
+        
 }
 
-let caseCitation = document.getElementById('case-citation').value()
-//let inputCase = new Case(caseCitation)
+
 
 $('#btn-submit').click(function(){
-    alert(caseCitation)
+     usrInputCitation = $('#case-citation').val()
+    console.log(usrInputCitation)
 })
+        
+
+
