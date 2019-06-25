@@ -52,7 +52,9 @@ app.on('ready', () => {
     mb.setOption('width', 320)
     mb.setOption('height', 250)
     mb.tray.setContextMenu(contextMenuContents())
+    mb.tray.setHighlightMode('selection')
   });
+
 
 });
 
