@@ -8,6 +8,12 @@ let mb = null
 
 
 app.on('ready', () => {
+  app.setAboutPanelOptions({
+    applicationName: 'Refer',
+    applicationVersion: 'v0.1',
+    copyright: 'Daniel Graham',
+    credits: 'Icons made by Freepik & Icon Pond from www.flaticon.com'
+  })
   const tray = new Tray(iconPath)
   
   mb = menubar({
