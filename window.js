@@ -3,19 +3,27 @@ let ipcRenderer = require('electron').ipcRenderer;
 class Case {
     constructor(caseCitation){
         this.citation = caseCitation
+        validateCitation(this.citation)
+    }
+
+    validateCitation(citation){
+        return true
+
+    }
+
+
+    
+    
+    caseData(){
+    
+        return true
     }
 
     getValidCase(){
         return true
 
     }
-    
-    
-    
-    caseData(){
-    
-    
-    }
+
 
     getCourt(){
         return this.caseData()[1]
@@ -28,4 +36,8 @@ class Case {
 }
 
 let caseCitation = document.getElementById('case-citation').value()
-let inputCase = new Case(caseCitation)
+//let inputCase = new Case(caseCitation)
+
+$('#btn-submit').click(function(){
+    alert(caseCitation)
+})

@@ -11,8 +11,14 @@ app.on('ready', () => {
   const tray = new Tray(iconPath)
   
   mb = menubar({
-    tray
+    tray,
+    browserWindow: {
+      webPreferences: {
+        nodeIntegration: true
+      }
+    }
   });
+
 
   function contextMenuContents(){
     if (process.platform == 'darwin') {
@@ -34,7 +40,10 @@ app.on('ready', () => {
     console.log('Menubar app is ready.');
     mb.setOption('width', 320)
     mb.setOption('height', 350)
-    // your app code here
     mb.tray.setContextMenu(contextMenuContents())
   });
+
+  mb.on('after-create-window', () => {
+    mb.window.openDevTools({mode: 'detach'})
+  })
 });
