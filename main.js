@@ -14,7 +14,7 @@ app.on('ready', () => {
     copyright: 'Daniel Graham',
     credits: 'Icons made by Freepik & Icon Pond from www.flaticon.com'
   })
-  const tray = new Tray('IconTemplate@2x.png')
+  const tray = new Tray('app/IconTemplate@2x.png')
   
   mb = menubar({
     tray,
